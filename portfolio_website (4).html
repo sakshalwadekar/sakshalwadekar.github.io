@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sakshal Wadekar - Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
+        
+        header {
+            background: #004080;
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+        }
+        
+        h1 {
+            margin-top: 10px;
+        }
+        
+        section {
+            margin-top: 30px;
+        }
+        
+        h2.project-title {
+            color: #004080;
+            border-bottom: 2px solid #004080;
+            padding-bottom: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .details {
+            display: none;
+            margin-top: 10px;
+            font-size: 0.95em;
+            line-height: 1.6em;
+        }
+        
+        .button {
+            background: #004080;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #004080;
+            color: #fff;
+            margin-top: 30px;
+        }
+        
+        a {
+            color: #004080;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        strong {
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function toggleDetails(id) {
+            var details = document.getElementById(id);
+            details.style.display = (details.style.display === 'none') ? 'block' : 'none';
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Sakshal Sambhaji Wadekar</h1>
+        <p>Turning data into meaningful insights | Aspiring Data Analyst & Python Developer</p>
+        <img src="C:\Users\Sakshal\OneDrive\Pictures\image.jpeg" alt="Profile Photo" style="width:150px;height:150px;border-radius:50%;margin-top:15px;object-fit:cover;">
+    </header>
+
+    <div class="container">
+
+        <section>
+            <h2>About Me</h2>
+            <p>I’m deeply passionate about transforming raw data into actionable insights. Experienced in building dashboards, developing full-stack applications, and using Python and Power BI to solve real-world problems. I thrive on delivering solutions
+                that drive strategy and innovation.</p>
+        </section>
+
+        <section>
+            <h2>Professional Summary</h2>
+            <p>Seeking to leverage technical skills in data analytics, Power BI, Python, and web development to deliver impactful, data-driven applications and dashboards supporting digital transformation.</p>
+        </section>
+
+        <section>
+            <h2>Technical & Soft Skills</h2>
+            <ul>
+                <li><strong>Data Analytics & Visualization:</strong> SQL, Power BI, Tableau, MS Excel</li>
+                <li><strong>Programming:</strong> Python (Pandas, NumPy)</li>
+                <li><strong>Web Development:</strong> HTML, CSS, JavaScript</li>
+                <li><strong>Soft Skills:</strong> Strong communication, teamwork, adaptability, attention to detail</li>
+                <li><strong>Languages:</strong> English, Hindi, Marathi</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Education</h2>
+            <ul>
+                <li>MCA, PIRENS IBMA, Loni (2023–2025)</li>
+                <li>BCA, S N Arts, D.J. Malpani Commerce & B.N. Sarda Science College (2020–2023)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Certifications</h2>
+            <ul>
+                <li><a href="https://drive.google.com/file/d/1ZePUGorgtE091XtGEzFBC75ZE_z1_jfy/view?usp=sharing" target="_blank">PWC Forage Certification in Power BI</a></li>
+                <li><a href="https://drive.google.com/file/d/1_7MccJayzxNpeXhqhDchNSa6l5PjbT2G/view?usp=sharing" target="_blank">TATA Data Visualization Certificate</a></li>
+                <li>Certification in Data Analyst by Giri’s Tech Hub Pvt LTD, Pune</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Contact</h2>
+            <ul>
+                <li>Email: sakshalwadekar2019@gmail.com</li>
+                <li>Phone: +91-8669121387</li>
+                <li><a href="https://www.linkedin.com/in/sakshal-wadekar-1291ba31b/" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/sakshalwadekar" target="_blank">GitHub</a></li>
+            </ul>
+            <a href="https://drive.google.com/file/d/1ZePUGorgtE091XtGEzFBC75ZE_z1_jfy/view?usp=sharing" class="button" target="_blank">Download Resume</a>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+
+            <div onclick="toggleDetails('studybuddy-details')" class="project-title">Study Buddy ▼</div>
+            <div class="details" id="studybuddy-details">
+                <p><strong>Objective:</strong> Revolutionize online education with a feature-rich LMS.</p>
+                <p><strong>What I Did:</strong> Architecture, Python/Django backend, PostgreSQL database, frontend UI, AI planning, testing, and documentation.</p>
+                <p><strong>Features:</strong> Course management, personalized recommendations, quizzes, gamification, user roles, tracking, certificates.</p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/sakshalwadekar/Study-Buddy" target="_blank">Study Buddy Repo</a></p>
+            </div>
+
+            <div onclick="toggleDetails('car-details')" class="project-title">Car Sales Dashboard ▼</div>
+            <div class="details" id="car-details">
+                <p><strong>Objective:</strong> Real-time Power BI dashboard for car sales performance.</p>
+                <p><strong>What I Did:</strong> ETL, data modeling, advanced DAX, visuals, filters.</p>
+                <p><strong>Features:</strong> YTD/MTD sales, YOY growth, style/color/company breakdowns, deep-dive data view.</p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/sakshalwadekar/Car-Sales-Dashboard" target="_blank">Car Sales Dashboard Repo</a></p>
+            </div>
+
+            <div onclick="toggleDetails('amazon-details')" class="project-title">Amazon Prime / Products Dashboard ▼</div>
+            <div class="details" id="amazon-details">
+                <p><strong>Objective:</strong> Analyze Prime video consumption & product sales.</p>
+                <p><strong>What I Did:</strong> Dual data integration, data models, DAX, multi-tab interface.</p>
+                <p><strong>Features:</strong> Content popularity, product categories, sales trends, filters.</p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/sakshalwadekar/Amazon-Prime" target="_blank">Amazon Dashboard Repo</a></p>
+            </div>
+
+            <div onclick="toggleDetails('coffee-details')" class="project-title">Coffee Sale Dashboard ▼</div>
+            <div class="details" id="coffee-details">
+                <p><strong>Objective:</strong> Power BI dashboard for coffee shop sales insights.</p>
+                <p><strong>What I Did:</strong> Data prep, DAX, visuals, interactive slicers.</p>
+                <p><strong>Features:</strong> KPIs, product breakdown, sales by day/hour, location filters.</p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/sakshalwadekar/Coffee-Sales-Dashboard" target="_blank">Coffee Dashboard Repo</a></p>
+            </div>
+
+            <div onclick="toggleDetails('airquality-details')" class="project-title">Air Quality Report ▼</div>
+            <div class="details" id="airquality-details">
+                <p><strong>Objective:</strong> Power BI dashboard to monitor urban air quality.</p>
+                <p><strong>What I Did:</strong> Data cleaning, DAX, visuals, trends, filters.</p>
+                <p><strong>Features:</strong> AQI trends, top polluted cities, pollutant averages, interactive filtering.</p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/sakshalwadekar/Air-Quality-Analysis-Report" target="_blank">Air Quality Repo</a></p>
+            </div>
+
+        </section>
+
+    </div>
+
+    <footer>
+        &copy; 2025 Sakshal Wadekar
+    </footer>
+
+</body>
+
+</html>
