@@ -1,142 +1,1033 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sakshal Wadekar - Portfolio</title>
-<style>
-body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
-header { background: #004080; color: #fff; padding: 20px; text-align: center; position: relative; }
-.profile-pic { width: 100px; height: 100px; object-fit: cover; border: 3px solid #004080; background: #004080; position: absolute; top: 10px; right: 10px; }
-h1 { margin: 0; font-size: 1.8em; }
-p.subtitle { margin: 5px 0 0; font-size: 1em; }
-.container { max-width: 1000px; margin: auto; padding: 20px; background: #fff; }
-section { margin-top: 30px; }
-h2.project-title { color: #004080; border-bottom: 2px solid #004080; padding-bottom: 5px; cursor: pointer; font-size: 1.1em; }
-.details { display: none; margin-top: 10px; font-size: 0.95em; line-height: 1.6em; }
-.button { background: #004080; color: #fff; padding: 8px 16px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px; font-size: 0.9em; }
-footer { text-align: center; padding: 10px; background: #004080; color: #fff; margin-top: 30px; font-size: 0.9em; }
-a { color: #004080; text-decoration: none; font-weight: bold; }
-strong { font-weight: bold; }
-</style>
-<script>
-function toggleDetails(id) {
-  var details = document.getElementById(id);
-  details.style.display = (details.style.display === 'none') ? 'block' : 'none';
-}
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakshal Sambhaji Wadekar - Portfolio</title>
+    <!-- BOX ICONS -->
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Google Fonts - Poppins (common for portfolio themes) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /*===== BASE =====*/
+        :root {
+            --header-height: 3rem;
+            --font-semi: 600;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: var(--header-height) 0 0 0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.938rem; /* 15px */
+            background-color: #f0f2f5; /* Light background */
+            color: #4a4a4a; /* Dark gray text */
+            line-height: 1.6;
+        }
+        h1, h2, h3, p, ul {
+            margin: 0;
+        }
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /*===== LAYOUT =====*/
+        .l-header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .bd-grid {
+            max-width: 968px;
+            display: grid;
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+        .home.bd-grid {
+            grid-template-columns: 1fr;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            text-align: center; /* Default to center for mobile */
+            position: relative; /* Needed for absolute positioning of image */
+        }
+        @media screen and (min-width: 768px) {
+            .bd-grid {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .home.bd-grid {
+                /* Adjusted grid for content in middle, image in corner */
+                grid-template-columns: 1fr; /* Single column for main content */
+                align-items: center;
+                gap: 2rem;
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+                text-align: center; /* Center content horizontally */
+            }
+            .home__data {
+                text-align: center; /* Ensure text is centered on desktop */
+                max-width: 600px; /* Constrain width for better readability */
+                margin: 0 auto; /* Center the content block */
+            }
+        }
+
+        /*===== NAV =====*/
+        .nav {
+            height: var(--header-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: var(--font-semi);
+        }
+        .nav__logo {
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+        .nav__logo:hover {
+            color: #007bff;
+        }
+        @media screen and (max-width: 767px) {
+            .nav__menu {
+                position: fixed;
+                top: var(--header-height);
+                right: -100%;
+                width: 70%;
+                height: 100%;
+                background-color: #ffffff;
+                padding: 2rem 1.5rem 0;
+                box-shadow: -2px 0 4px rgba(0,0,0,0.1);
+                transition: 0.3s;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+        }
+        .nav__list {
+            display: flex;
+            flex-direction: column;
+        }
+        .nav__item {
+            margin-bottom: 1.5rem;
+        }
+        .nav__link {
+            position: relative;
+            color: #555;
+            transition: 0.3s;
+        }
+        .nav__link:hover {
+            color: #007bff;
+        }
+        .nav__link::after {
+            position: absolute;
+            content: '';
+            width: 0;
+            height: 3px;
+            background-color: #007bff;
+            left: 0;
+            bottom: -6px;
+            transition: 0.3s;
+        }
+        .nav__link:hover::after {
+            width: 100%;
+        }
+        .nav__toggle {
+            color: #333;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Active link */
+        .active-link {
+            color: #007bff;
+        }
+        .active-link::after {
+            width: 100%;
+        }
+
+        /* Show menu */
+        .show-menu {
+            right: 0;
+        }
+
+        /*===== HOME =====*/
+        .home {
+            position: relative;
+            row-gap: 3rem;
+            padding: 4rem 0 2rem;
+            overflow: hidden; /* To contain absolutely positioned image */
+        }
+        .home__data {
+            align-self: center;
+        }
+        .home__title {
+            font-size: 2.5rem; /* 40px */
+            margin-bottom: 6rem;
+            color: #333;
+            line-height: 1.2;
+        }
+        .home__title-color {
+            color: #007bff;
+        }
+        .home__description {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 6rem;
+            max-width: 80%; /* Constrain width for readability on mobile */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media screen and (min-width: 768px) {
+            .home__description {
+                max-width: 100%; /* Full width within home__data on desktop */
+            }
+        }
+
+        .home__social {
+            display: none; /* Hide social icons in home section as requested */
+        }
+        .home__img {
+            position: absolute; /* Position absolutely */
+            max-width: 200px; /* Smaller size for corner */
+            width: 100%; /* Ensure responsiveness */
+            height: auto;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 1; /* Ensure it's above other content if overlapping */
+
+            /* Positioning for desktop (top-right corner) */
+            top: 6rem; /* Distance from top */
+            right: -1rem; /* Distance from right */
+            transform: none; /* Remove previous transforms */
+        }
+        @media screen and (max-width: 767px) {
+            .home__img {
+                position: relative; /* Revert to relative for mobile */
+                max-width: 150px; /* Adjust size for mobile */
+                margin: 2rem auto 0; /* Center for mobile */
+                top: auto;
+                right: auto;
+                justify-self: center;
+            }
+        }
+
+        .home__blob {
+            fill: #e6f2ff; /* Light blue background for blob */
+            width: 100%;
+            height: auto;
+        }
+        .home__blob-img {
+            width: 100%; /* Make image fill the blob */
+            height: 100%; /* Make image fill the blob */
+            object-fit: cover; /* Cover the area, cropping if necessary */
+            border-radius: 50%; /* Ensure it stays circular */
+            filter: grayscale(10%); /* Subtle filter */
+        }
+
+        /* BUTTONS */
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: var(--font-semi);
+            transition: 0.3s;
+            box-shadow: 0 4px 8px rgba(0,123,255,0.2);
+            margin-top: 1.5rem;
+        }
+        .button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,123,255,0.3);
+        }
+
+        /*===== SECTIONS =====*/
+        .section {
+            padding: 4rem 0 2rem;
+        }
+        .section-title {
+            position: relative;
+            font-size: 2rem; /* 32px */
+            color: #333;
+            margin-bottom: 2rem;
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #007bff;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /*===== ABOUT =====*/
+        .about__container {
+            row-gap: 2rem;
+            text-align: center;
+        }
+        .about__img {
+            justify-self: center;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .about__img img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .about__subtitle {
+            font-size: 1.5rem; /* 24px */
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .about__text {
+            color: #555;
+            text-align: left;
+        }
+        @media screen and (min-width: 768px) {
+            .about__container {
+                grid-template-columns: repeat(2, 1fr);
+                align-items: center;
+                text-align: left;
+            }
+            .about__img {
+                width: 380px;
+            }
+        }
+
+        /*===== SKILLS =====*/
+        .skills__container {
+            row-gap: 2rem;
+            text-align: center;
+        }
+        .skills__subtitle {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .skills__text {
+            color: #555;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        .skills__data {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            font-weight: var(--font-semi);
+            padding: 0.5rem 0;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd; /* Added border for the box effect */
+            border-radius: 0.5rem; /* Rounded corners for the box */
+            padding-left: 1rem; /* Padding inside the box */
+            padding-right: 1rem;
+            background-color: #fff; /* White background for the box */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+            height: 2.5rem; /* Fixed height for skill bar container */
+        }
+        .skills__icon {
+            font-size: 1.5rem;
+            color: #007bff;
+            margin-right: 0.5rem;
+        }
+        .skills__names {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            flex-grow: 1; /* Allows names to take available space */
+            position: relative; /* For z-index to be effective */
+            z-index: 2; /* Ensure text is above the bar */
+            background-color: transparent; /* Ensure no background blocks text */
+        }
+        .skills__bar {
+            position: absolute;
+            left: 0;
+            top: 0; /* Changed from bottom: 0; to top: 0; to make it fill the whole height */
+            background-color: #e6f2ff; /* Lighter blue for background of bar */
+            height: 100%; /* Fill the height of skills__data */
+            border-radius: 0.5rem; /* Match parent border-radius */
+            transition: width 0.5s ease-in-out;
+            z-index: 1; /* Ensure bar is behind text */
+        }
+        /* Inner bar for actual percentage */
+        .skills__bar::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #007bff; /* Darker blue for filled portion */
+            height: 100%;
+            border-radius: 0.5rem;
+            transition: width 0.5s ease-in-out;
+        }
+
+        /* Skill bar widths - these define the visual percentage */
+        .skills__html::after { width: 95%; }
+        .skills__css::after { width: 85%; }
+        .skills__js::after { width: 75%; }
+        .skills__ux::after { width: 85%; }
+        .skills__python::after { width: 90%; }
+        .skills__sql::after { width: 80%; }
+        .skills__powerbi::after { width: 90%; }
+        .skills__tableau::after { width: 80%; }
+        .skills__django::after { width: 85%; }
+        .skills__flask::after { width: 70%; }
+        .skills__tkinter::after { width: 75%; }
+        .skills__excel::after { width: 90%; }
+        .skills__git::after { width: 80%; }
+
+        /* Removed .skills__percentage as per user request */
+        .skills__img {
+            border-radius: 0.75rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        @media screen and (min-width: 768px) {
+            .skills__container {
+                grid-template-columns: repeat(2, 1fr);
+                align-items: center;
+                text-align: left;
+            }
+        }
+
+        /*===== WORK =====*/
+        .work__container {
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            justify-items: center;
+        }
+        .work__img {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Removed ::after for blue overlay */
+        }
+        .work__img img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .work__img:hover img {
+            transform: scale(1.1);
+        }
+        /* Removed .work__img::after and .work__img:hover::after */
+        .project-details {
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-bottom-left-radius: 0.75rem;
+            border-bottom-right-radius: 0.75rem;
+        }
+        .project-details h3 {
+            font-size: 1.25rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        .project-details p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .project-tag {
+            background-color: #e6f2ff;
+            color: #007bff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .project-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            position: relative; /* Ensure z-index works */
+            z-index: 2; /* Bring links to front */
+        }
+        .project-link {
+            color: #007bff;
+            font-weight: var(--font-semi);
+            transition: color 0.3s ease;
+        }
+        .project-link:hover {
+            color: #0056b3;
+        }
+
+
+        /*===== CONTACT =====*/
+        .contact__container {
+            row-gap: 2rem;
+            text-align: center;
+        }
+        .contact__form {
+            display: grid;
+            row-gap: 1.5rem;
+        }
+        .contact__input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            outline: none;
+            font-size: 0.938rem;
+            color: #333;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s ease;
+        }
+        .contact__input:focus {
+            border-color: #007bff;
+        }
+        .contact__button {
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+        .contact__info {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .contact__info p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        .contact__info a {
+            color: #007bff;
+            font-weight: var(--font-semi);
+            transition: color 0.3s ease;
+        }
+        .contact__info a:hover {
+            color: #0056b3;
+        }
+        .contact__icon {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+            color: #007bff;
+        }
+        .contact__social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .contact__social-links a {
+            font-size: 2rem;
+            color: #555;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .contact__social-links a:hover {
+            color: #007bff;
+            transform: translateY(-3px);
+        }
+
+
+        /*===== FOOTER =====*/
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .footer__title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .footer__social {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .footer__icon {
+            font-size: 1.5rem;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+        .footer__icon:hover {
+            color: #007bff;
+        }
+        .footer__copy {
+            font-size: 0.8rem;
+            color: #bbb;
+        }
+
+        /*===== MEDIA QUERIES =====*/
+        @media screen and (min-width: 768px) {
+            body {
+                margin: 0;
+            }
+            .l-header {
+                height: calc(var(--header-height) + 1rem);
+            }
+            .nav {
+                height: calc(var(--header-height) + 1rem);
+            }
+            .nav__list {
+                display: flex;
+                flex-direction: row;
+                margin-left: auto;
+            }
+            .nav__item {
+                margin-left: 2.5rem;
+                margin-bottom: 0;
+            }
+            .nav__toggle {
+                display: none;
+            }
+            .home {
+                padding: 8rem 0 2rem;
+            }
+            .section {
+                padding: 6rem 0 2rem;
+            }
+            .work__container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .contact__form {
+                width: 70%;
+                margin: 0 auto;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<header>
-  <h1>Sakshal Sambhaji Wadekar</h1>
-  <p class="subtitle">Turning data into meaningful insights | Aspiring Data Analyst & Python Developer</p>
- 
-</header>
-
-
-    <div class="container">
-
-        <section>
-            <h2>About Me</h2>
-            <p>I’m deeply passionate about transforming raw data into actionable insights. Experienced in building dashboards, developing full-stack applications, and using Python and Power BI to solve real-world problems. I thrive on delivering solutions
-                that drive strategy and innovation.</p>
-        </section>
-
-        <section>
-            <h2>Professional Summary</h2>
-            <p>Seeking to leverage technical skills in data analytics, Power BI, Python, and web development to deliver impactful, data-driven applications and dashboards supporting digital transformation.</p>
-        </section>
-
-        <section>
-            <h2>Technical & Soft Skills</h2>
-            <ul>
-                <li><strong>Data Analytics & Visualization:</strong> SQL, Power BI, Tableau, MS Excel</li>
-                <li><strong>Programming:</strong> Python (Pandas, NumPy)</li>
-                <li><strong>Web Development:</strong> HTML, CSS, JavaScript</li>
-                <li><strong>Soft Skills:</strong> Strong communication, teamwork, adaptability, attention to detail</li>
-                <li><strong>Languages:</strong> English, Hindi, Marathi</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Education</h2>
-            <ul>
-                <li>MCA, PIRENS IBMA, Loni (2023–2025)</li>
-                <li>BCA, S N Arts, D.J. Malpani Commerce & B.N. Sarda Science College (2020–2023)</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Certifications</h2>
-            <ul>
-                <li><a href="https://drive.google.com/file/d/1ZePUGorgtE091XtGEzFBC75ZE_z1_jfy/view?usp=sharing" target="_blank">PWC Forage Certification in Power BI</a></li>
-                <li><a href="https://drive.google.com/file/d/1_7MccJayzxNpeXhqhDchNSa6l5PjbT2G/view?usp=sharing" target="_blank">TATA Data Visualization Certificate</a></li>
-                <li>Certification in Data Analyst by Giri’s Tech Hub Pvt LTD, Pune</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Projects</h2>
-
-            <div onclick="toggleDetails('studybuddy-details')" class="project-title">Study Buddy ▼</div>
-            <div class="details" id="studybuddy-details">
-                <p><strong>Objective:</strong> Revolutionize online education with a feature-rich LMS.</p>
-                <p><strong>What I Did:</strong> Architecture, Python/Django backend, PostgreSQL database, frontend UI, AI planning, testing, and documentation.</p>
-                <p><strong>Features:</strong> Course management, personalized recommendations, quizzes, gamification, user roles, tracking, certificates.</p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/sakshalwadekar/Study-Buddy" target="_blank">Study Buddy Repo</a></p>
+    <!--===== HEADER =====-->
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#home" class="nav__logo">Sakshal Wadekar</a>
             </div>
 
-            <div onclick="toggleDetails('car-details')" class="project-title">Car Sales Dashboard ▼</div>
-            <div class="details" id="car-details">
-                <p><strong>Objective:</strong> Real-time Power BI dashboard for car sales performance.</p>
-                <p><strong>What I Did:</strong> ETL, data modeling, advanced DAX, visuals, filters.</p>
-                <p><strong>Features:</strong> YTD/MTD sales, YOY growth, style/color/company breakdowns, deep-dive data view.</p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/sakshalwadekar/Car-Sales-Dashboard" target="_blank">Car Sales Dashboard Repo</a></p>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="#projects" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
             </div>
 
-            <div onclick="toggleDetails('amazon-details')" class="project-title">Amazon Prime / Products Dashboard ▼</div>
-            <div class="details" id="amazon-details">
-                <p><strong>Objective:</strong> Analyze Prime video consumption & product sales.</p>
-                <p><strong>What I Did:</strong> Dual data integration, data models, DAX, multi-tab interface.</p>
-                <p><strong>Features:</strong> Content popularity, product categories, sales trends, filters.</p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/sakshalwadekar/Amazon-Prime" target="_blank">Amazon Dashboard Repo</a></p>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="l-main">
+        <!--===== HOME =====-->
+        <section class="home bd-grid" id="home">
+            <div class="home__data">
+                <h1 class="home__title">Hi,<br>I'm <span class="home__title-color">Sakshal</span><br> Data Analyst</h1>
+                <p class="home__description">Aspiring Data Analyst skilled in Power BI, SQL, Python, and data visualization. Completed internship as a Data Analyst Intern, building interactive dashboards and automating data workflows. Passionate about transforming raw data into actionable insights to support business decisions.</p>
+                <a href="#contact" class="button">Contact Me</a>
             </div>
 
-            <div onclick="toggleDetails('coffee-details')" class="project-title">Coffee Sale Dashboard ▼</div>
-            <div class="details" id="coffee-details">
-                <p><strong>Objective:</strong> Power BI dashboard for coffee shop sales insights.</p>
-                <p><strong>What I Did:</strong> Data prep, DAX, visuals, interactive slicers.</p>
-                <p><strong>Features:</strong> KPIs, product breakdown, sales by day/hour, location filters.</p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/sakshalwadekar/Coffee-Sales-Dashboard" target="_blank">Coffee Dashboard Repo</a></p>
+            <div class="home__img">
+                <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <mask id="mask0" mask-type="alpha">
+                        <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                    </mask>
+                    <g mask="url(#mask0)">
+                        <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                        <!-- Profile image for Sakshal -->
+                        <image class="home__blob-img" x="0" y="0" width="479" height="467" href="D:\Shreyas\Documents\Sakshal Scholarship\image.jpeg"/>
+                    </g>
+                </svg>
             </div>
-
-            <div onclick="toggleDetails('airquality-details')" class="project-title">Air Quality Report ▼</div>
-            <div class="details" id="airquality-details">
-                <p><strong>Objective:</strong> Power BI dashboard to monitor urban air quality.</p>
-                <p><strong>What I Did:</strong> Data cleaning, DAX, visuals, trends, filters.</p>
-                <p><strong>Features:</strong> AQI trends, top polluted cities, pollutant averages, interactive filtering.</p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/sakshalwadekar/Air-Quality-Analysis-Report" target="_blank">Air Quality Repo</a></p>
-            </div>
-
-        </section>
-         <section>
-            <h2>Contact</h2>
-            <ul>
-                <li>Email: sakshalwadekar2019@gmail.com</li>
-                <li>Phone: +91-8669121387</li>
-                <li><a href="https://www.linkedin.com/in/sakshal-wadekar-1291ba31b/" target="_blank">LinkedIn</a></li>
-                <li><a href="https://github.com/sakshalwadekar" target="_blank">GitHub</a></li>
-            </ul>
-            <a href="https://drive.google.com/file/d/1ZePUGorgtE091XtGEzFBC75ZE_z1_jfy/view?usp=sharing" class="button" target="_blank">Download Resume</a>
         </section>
 
-    </div>
+        <!--===== ABOUT =====-->
+        <section class="about section" id="about">
+            <h2 class="section-title">About</h2>
 
-    <footer>
-        &copy; 2025 Sakshal Wadekar
+            <div class="about__container bd-grid">
+                <div class="about__img">
+                    <img src="https://placehold.co/400x300/e6f2ff/007bff?text=About+Me" alt="About Me Image">
+                </div>
+                
+                <div>
+                    <h2 class="about__subtitle">I'm Sakshal Sambhaji Wadekar</h2>
+                    <p class="about__text">
+                        Aspiring Data Analyst skilled in Power BI, SQL, Python, and data visualization. Completed internship as a Data Analyst Intern, building interactive dashboards and automating data workflows. Passionate about transforming raw data into actionable insights to support business decisions.
+                        <br><br>
+                        During my internship at Creazione Software (Oct 2024 - April 2025), I collected, cleaned, and preprocessed raw data from multiple sources to ensure data quality and consistency. I created interactive dashboards and visual reports using tools like Excel, Power BI, or Tableau to communicate findings effectively to stakeholders. Additionally, I automated data pipelines and routine reporting tasks using SQL queries and Python scripts, improving efficiency.
+                    </p>
+                </div>                        
+            </div>
+        </section>
+
+        <!--===== SKILLS =====-->
+        <section class="skills section" id="skills">
+            <h2 class="section-title">Skills</h2>
+
+            <div class="skills__container bd-grid">         
+                <div>
+                    <h2 class="skills__subtitle">Professional Skills</h2>
+                    <p class="skills__text">My expertise spans across various programming languages, frameworks, and data analysis tools, enabling me to tackle diverse challenges and deliver impactful solutions.</p>
+                    
+                    <div class="skills__data" data-skill-level="90%">
+                        <div class="skills__names">
+                            <i class='bx bxs-bar-chart-alt-2 skills__icon'></i>
+                            <span class="skills__name">Data Visualization</span>
+                        </div>
+                        <div class="skills__bar"></div>
+                    </div>
+                    <div class="skills__data" data-skill-level="90%">
+                        <div class="skills__names">
+                            <i class='bx bxs-spreadsheet skills__icon'></i>
+                            <span class="skills__name">Microsoft Excel</span>
+                        </div>
+                        <div class="skills__bar"></div>
+                    </div>
+                    <div class="skills__data" data-skill-level="80%">
+                        <div class="skills__names">
+                            <i class='bx bxs-bar-chart-alt-2 skills__icon'></i>
+                            <span class="skills__name">Tableau</span>
+                        </div>
+                        <div class="skills__bar"></div>
+                    </div>
+                    <div class="skills__data" data-skill-level="90%">
+                        <div class="skills__names">
+                            <i class='bx bxs-analyse skills__icon'></i>
+                            <span class="skills__name">Data Analysis</span>
+                        </div>
+                        <div class="skills__bar"></div>
+                    </div>
+                    <div class="skills__data" data-skill-level="90%">
+                        <div class="skills__names">
+                            <i class='bx bxs-dashboard skills__icon'></i>
+                            <span class="skills__name">Microsoft Power BI</span>
+                        </div>
+                        <div class="skills__bar"></div>
+                    </div>
+                    <div class="skills__data" data-skill-level="70%">
+                        <div class="skills__names">
+                            <i class='bx bxl-python skills__icon'></i>
+                            <span class="skills__name">R Programming</span>
+                        </div>
+                        <div class="skills__bar"></div>
+                    </div>
+                    <div class="skills__data" data-skill-level="85%">
+                        <div class="skills__names">
+                            <i class='bx bxl-python skills__icon'></i>
+                            <span class="skills__name">Python</span>
+                        </div>
+                        <div class="skills__bar"></div>
+                    </div>
+                    <div class="skills__data" data-skill-level="85%">
+                        <div class="skills__names">
+                            <i class='bx bxs-data skills__icon'></i>
+                            <span class="skills__name">SQL & Database</span>
+                        </div>
+                        <div class="skills__bar"></div>
+                    </div>
+                    <div class="skills__data" data-skill-level="75%">
+                        <div class="skills__names">
+                            <i class='bx bxl-html5 skills__icon'></i>
+                            <span class="skills__name">HTML, CSS</span>
+                        </div>
+                        <div class="skills__bar"></div>
+                    </div>
+                </div>
+                
+                <div>            
+                    <img src="https://placehold.co/400x300/e6f2ff/007bff?text=My+Skills" alt="Skills Image" class="skills__img">
+                </div>
+            </div>
+        </section>
+
+        <!--===== WORK =====-->
+        <section class="work section" id="work">
+            <h2 class="section-title">Work</h2>
+
+            <div class="work__container bd-grid">
+                <!-- Project 1: Study Buddy -->
+                <div class="work__img">
+                    <img src="https://placehold.co/600x400/e6f2ff/007bff?text=Study+Buddy+LMS" alt="Study Buddy LMS">
+                    <div class="project-details">
+                        <h3>Study Buddy (LMS)</h3>
+                        <p>Developed and deployed a full-stack Learning Management System using Python Django and HTML templates, streamlining online education workflows.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">Full-stack</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/SakshalWadekar/StudyBuddy" class="project-link" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Coffee Sales Dashboard -->
+                <div class="work__img">
+                    <img src="https://placehold.co/600x400/e6f2ff/007bff?text=Coffee+Sales+Dashboard" alt="Coffee Sales Dashboard">
+                    <div class="project-details">
+                        <h3>Coffee Sales Dashboard</h3>
+                        <p>Visualized sales trends by product, location, and time using Power BI to monitor daily and monthly performance across coffee categories.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Power BI</span>
+                            <span class="project-tag">Data Visualization</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/SakshalWadekar/PowerBI-Projects" class="project-link" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Amazon Prime Movies Dashboard -->
+                <div class="work__img">
+                    <img src="https://placehold.co/600x400/e6f2ff/007bff?text=Amazon+Prime+Dashboard" alt="Amazon Prime Movies Dashboard">
+                    <div class="project-details">
+                        <h3>Amazon Prime Movies Dashboard</h3>
+                        <p>Analyzed movie sales, review counts, and category trends using Power BI with dynamic charts and release year comparisons.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Power BI</span>
+                            <span class="project-tag">Data Analysis</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/SakshalWadekar/PowerBI-Projects" class="project-link" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Car Sales Analysis Dashboard -->
+                <div class="work__img">
+                    <img src="https://placehold.co/600x400/e6f2ff/007bff?text=Car+Sales+Dashboard" alt="Car Sales Analysis Dashboard">
+                    <div class="project-details">
+                        <h3>Car Sales Analysis Dashboard</h3>
+                        <p>Created an interactive Power BI dashboard to track car sales performance by body style, color, dealer region, and individual transactions.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Power BI</span>
+                            <span class="project-tag">Data Analysis</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/SakshalWadekar/PowerBI-Projects" class="project-link" target="_blank" rel="noopener noreferrer">GitHub &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder for another project or certification -->
+                <div class="work__img">
+                    <img src="https://placehold.co/600x400/e6f2ff/007bff?text=Data+Internship" alt="Data Analyst Internship">
+                    <div class="project-details">
+                        <h3>Data Analyst Internship</h3>
+                        <p>Collected, cleaned, and preprocessed raw data. Created interactive dashboards and automated data pipelines at Creazione Software.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Data Cleaning</span>
+                            <span class="project-tag">Automation</span>
+                            <span class="project-tag">SQL</span>
+                            <span class="project-tag">Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#about" class="project-link">Learn More &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder for another project or certification -->
+                <div class="work__img">
+                    <img src="https://placehold.co/600x400/e6f2ff/007bff?text=Certifications" alt="Certifications">
+                    <div class="project-details">
+                        <h3>Certifications & Awards</h3>
+                        <p>Highlights of professional certifications and academic achievements, showcasing continuous learning and recognition.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Certifications</span>
+                            <span class="project-tag">Awards</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#resume" class="project-link">View Details &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--===== RESUME (New Section based on your resume content) =====-->
+        <section class="section" id="resume">
+            <h2 class="section-title">Resume</h2>
+            <div class="bd-grid">
+                <div class="about__text">
+                    <h3 class="about__subtitle">Work Experience</h3>
+                    <ul class="list-disc list-inside mb-6">
+                        <li>
+                            <strong>Data Analyst Intern at Creazione Software</strong>, Pune, Maharashtra | Oct 2024 - April 2025
+                            <ul class="list-circle list-inside ml-5">
+                                <li>Collected, cleaned, and preprocessed raw data from multiple sources to ensure data quality and consistency.</li>
+                                <li>Created interactive dashboards and visual reports using tools like Excel, Power BI, or Tableau to communicate findings effectively to stakeholders.</li>
+                                <li>Automated data pipelines and routine reporting tasks using SQL queries and Python scripts, improving efficiency.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h3 class="about__subtitle">Education</h3>
+                    <ul class="list-disc list-inside mb-6">
+                        <li><strong>MCA | PIRENS IBMA Loni, Maharashtra, Savitribai Phule Pune University</strong>, Pune | 2023-2025 (CGPA: 7.66)</li>
+                        <li><strong>BCA SN Arts, D.J. Malpani Commerce and B.N. Sarda Science College</strong>, Sangamner, Maharashtra, Savitribai Phule Pune University, Pune | 2020-2023 (CGPA: 8.81 Grade: A+)</li>
+                    </ul>
+
+                    <h3 class="about__subtitle">Professional Certifications</h3>
+                    <ul class="list-disc list-inside mb-6">
+                        <li><strong>TATA Data Visualisation Certificate</strong> (June 2025)</li>
+                        <li><strong>Pwc Forage Certification in Power BI</strong> (Dec 2024)</li>
+                        <li><strong>Certification In Data Analyst by Giri's Tech Hub Pvt LTD</strong>, Pune (Sep 2024)</li>
+                    </ul>
+
+                    <h3 class="about__subtitle">Additional Information</h3>
+                    <ul class="list-disc list-inside mb-6">
+                        <li><strong>Languages:</strong> Marathi, Hindi, English</li>
+                        <li><strong>DOB:</strong> 22/12/2000</li>
+                        <li><strong>Interests:</strong> Dancing, Travelling, Adventure Trip</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!--===== CONTACT =====-->
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="contact__container bd-grid">
+                <form action="mailto:sakshalwadekar2019@gmail.com" method="post" enctype="text/plain" class="contact__form">
+                    <input type="text" name="Name" placeholder="Name" class="contact__input" required>
+                    <input type="email" name="Email" placeholder="Email" class="contact__input" required>
+                    <textarea name="Message" id="" cols="0" rows="10" placeholder="Your Message" class="contact__input"></textarea>
+                    <input type="submit" value="Send Message" class="contact__button button">
+                </form>
+                <div class="contact__info">
+                    <p><i class='bx bx-envelope contact__icon'></i> <a href="mailto:sakshalwadekar2019@gmail.com">sakshalwadekar2019@gmail.com</a></p>
+                    <p><i class='bx bx-phone contact__icon'></i> +91-8669121387</p>
+                    <div class="contact__social-links">
+                        <a href="https://www.linkedin.com/in/sakshal-wadekar-73b3b2229/" target="_blank" rel="noopener noreferrer"><i class='bx bxl-linkedin'></i></a>
+                        <a href="https://github.com/SakshalWadekar" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
+                        <!-- Add other social links here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--===== FOOTER =====-->
+    <footer class="footer">
+        <p class="footer__title">Sakshal Wadekar</p>
+        <div class="footer__social">
+        </div>
+        <p class="footer__copy">&#169; Sakshal Wadekar. All rights reserved</p>
     </footer>
 
-</body>
+    <!--===== MAIN JS =====-->
+    <script>
+        //===== MENU SHOW Y HIDDEN =====
+        const navMenu = document.getElementById('nav-menu'),
+              navToggle = document.getElementById('nav-toggle'),
+              navClose = document.getElementById('nav-close'); // Not used in current HTML, but good to keep for completeness
 
+        /* MENU SHOW */
+        if(navToggle){
+            navToggle.addEventListener('click', () =>{
+                navMenu.classList.add('show-menu');
+            })
+        }
+
+        /* MENU HIDDEN */
+        // Assuming clicking on a nav link or outside closes the menu on mobile
+        navMenu.addEventListener('click', (e) => {
+            if(e.target.classList.contains('nav__link')){
+                navMenu.classList.remove('show-menu');
+            }
+        });
+
+        //===== REMOVE MENU MOBILE =====
+        const navLink = document.querySelectorAll('.nav__link');
+
+        function linkAction(){
+            const navMenu = document.getElementById('nav-menu');
+            // When we click on each nav__link, we remove the show-menu class
+            navMenu.classList.remove('show-menu');
+        }
+        navLink.forEach(n => n.addEventListener('click', linkAction));
+
+        //===== SCROLL SECTIONS ACTIVE LINK =====
+        const sections = document.querySelectorAll('section[id]');
+
+        function scrollActive(){
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(current =>{
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 50;
+                sectionId = current.getAttribute('id');
+
+                if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+                    document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link');
+                }else{
+                    document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link');
+                }
+            })
+        }
+        window.addEventListener('scroll', scrollActive);
+
+        // Smooth scrolling for all internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Initialize active link on page load
+        document.addEventListener('DOMContentLoaded', scrollActive);
+
+        // Dynamically apply skill bar widths based on data-skill-level attribute
+        document.querySelectorAll('.skills__data').forEach(skillData => {
+            const skillLevel = skillData.getAttribute('data-skill-level');
+            if (skillLevel) {
+                const skillBarAfter = skillData.querySelector('.skills__bar::after');
+                if (skillBarAfter) {
+                    // This part needs to be handled in CSS directly for pseudo-elements
+                    // For JS, you'd typically modify a direct style, not pseudo-elements.
+                    // The CSS rules above are already set up to handle this with data-attributes.
+                }
+            }
+        });
+
+    </script>
+</body>
 </html>
